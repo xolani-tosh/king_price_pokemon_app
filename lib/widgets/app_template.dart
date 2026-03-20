@@ -3,11 +3,16 @@ import 'package:king_price_pokemon_app/helpers/app_sizes.dart';
 import 'package:king_price_pokemon_app/widgets/app_bar.dart';
 
 class AppTemplate extends StatefulWidget {
-  const AppTemplate({super.key, required this.title, required this.page});
+  const AppTemplate({
+    super.key,
+    required this.title,
+    required this.page,
+    this.isShowTopBar = false,
+  });
 
   final String title;
   final Widget page;
-
+  final bool isShowTopBar;
   @override
   State<AppTemplate> createState() => _AppTemplateState();
 }
@@ -16,12 +21,14 @@ class _AppTemplateState extends State<AppTemplate> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppTopBar(
-        isHomePage: true,
-        logoPath: 'assets/branding/app_logo.webp',
-        onMenuTap: () {},
-        onActionTap: () {},
-      ),
+      appBar: widget.isShowTopBar == true
+          ? AppTopBar(
+              isHomePage: true,
+              logoPath: 'assets/branding/app_logo.webp',
+              onMenuTap: () {},
+              onActionTap: () {},
+            )
+          : null,
       body: Padding(
         padding: AppSizes(context).padding.medium,
         child: widget.page,

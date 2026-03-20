@@ -24,16 +24,16 @@ class _RegistrationPageState extends State<RegistrationPage> {
     return AppTemplate(
       title: 'Registtration',
       page: Center(
-          child: Column(
-            mainAxisAlignment: .center,
-            children: [
-              Text(
-                '$_counter',
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
-            ],
-          ),
+        child: Column(
+          mainAxisAlignment: .center,
+          children: [
+            Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+          ],
         ),
+      ),
     );
   }
 }
